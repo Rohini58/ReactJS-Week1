@@ -178,6 +178,10 @@ tr:hover{
   
 }
 
+.skills{
+  padding: 10px;
+}
+
 /*Project CSS*/
 .flip-card1 {
   background-color: white;
@@ -225,3 +229,14 @@ tr:hover{
   transform: rotateX(180deg);
   
 }
+
+/* Contact Me */
+.contact{
+  text-align: center;
+  
+ background: #eee9e9;
+  padding: 20px;
+  margin: 50px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
