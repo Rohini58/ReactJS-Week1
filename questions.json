@@ -1,0 +1,92 @@
+[
+    {
+        "question": "What the color of Mirror?",
+        "choices": [
+            "Green",
+            "White",
+            "Red",
+            "Purple"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "question": "How much of our brain we use? ",
+        "choices": [
+            "80%",
+            "50%",
+            "85%",
+            "100%"
+        ],
+        "correctAnswer": 3
+    },
+    {
+        "question": "What is the Resolution of the human eye?",
+        "choices": [
+            "500 Megapixels",
+            "200 Megapixels",
+            "576 Megapixels",
+            "680 Megapixels"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Does Sunligh weigh anything ?",
+        "choices": [
+            "Noo",
+            "Yes",
+            "May be",
+            "Options A and B"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "question": "How much money is there in the world ?",
+        "choices": [
+            "100 billion dollars",
+            "75 trillion US dollars",
+            "60 billion US dollars",
+            "55 dollars"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "question":  " A Zoo has 41 animals, if 6 is dead then how many animals remain?",
+        "choices": [
+            "41",
+            "35",
+            "6",
+            "38"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "question": "What goes up but never comes back down?",
+        "choices": [
+            "Ballon",
+            "Air",
+            "Clock",
+            "Age"
+        ],
+        "correctAnswer": 3
+    },
+    {
+        "question": "What can't be used until it's broken?",
+        "choices": [
+            "Egg",
+            "Watermelon",
+            "Wood",
+            "Stick"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "question":  "What is it that you can't hold for more than a few seconds?",
+        "choices": [
+            "Your breath",
+            "Ice",
+            "Air",
+            "All of the above"
+        ],
+        "correctAnswer": 0
+    }
+]
