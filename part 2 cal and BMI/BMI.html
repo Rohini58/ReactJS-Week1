@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <title>BMI</title>
+        
+    </head>
+   
+    <style>
+       
+        .Container {
+      margin: 90px auto;
+      padding: 80px;
+      width: 250px;
+      height: 300px;
+      float: center;
+      background-color: rgb(238, 210, 243);
+    }
+    button{
+        float: center;
+    }
+    #btn{
+        margin-left: 10px;
+    }
+
+    </style>
+
+    <body>
+        <div id="app" />
+        <script type="text/babel">
+            
+
+            class App extends React.Component {
+
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        
+                        weight: "",
+                        heightf: "",
+                        heighti: "",
+                       result:""
+                    };
+                }
+
+                render() {
+                    return (
+                        <div className="Container"> 
+                            <h1>BMI Calculator</h1>
+
+                            <p>Enter weight</p>
+                            <input onChange={this.UpdateResponse1} value={this.state.weight}/>
+
+                            <p>Enter height</p>
+                            <input  placeholder="feets" onChange={this.UpdateResponse2} value={this.state.heightf}/>
+                            <input placeholder="inches"  onChange={this.UpdateResponse3} value={this.state.heighti}/><br></br> <br></br>
+                            <p>BMI </p>
+                            <input value={this.state.result} /><br></br> <br></br>
+                            <button id="btn" onClick={this.calulation}>Compute</button>
+                            <button id="btn" onClick={this.reset}>Reset</button>
+                            
+
+
+
+                            
+                            </div>
+                    );
+                }
+                UpdateResponse1 = (event) => {
+                    this.setState({ weight: parseInt(event.target.value) });   
+                    
+
+
+                }
+                UpdateResponse2 = (event) => {
+                    this.setState({ heightf: parseInt(event.target.value)});   
+                    
+
+
+                }
+                UpdateResponse3 = (event) => {
+                    this.setState({ heighti: parseInt(event.target.value) });   
+                    
+
+
+                }
+                calulation=(event)=>{
+                    var w=this.state.weight;
+                    var hf=this.state.heightf*0.3048;
+                    var hi=this.state.heighti*0.0254;
+                    var m=hf+hi
+                    var res=w/(m*m);
+                    this.setState({
+                        result:res
+                    })
+                    
+                }
+                reset= (event) => {
+                    this.setState({
+                        weight:"",
+                        heightf:"",
+                        heighti:"",
+                        result:""
+        
+                    });
+                }
+               
+
+            }
+
+            ReactDOM.render((
+                <div>
+                    <App />
+                </div>
+            ), document.querySelector("#app"));
+        </script>
+    </body>
+</html>

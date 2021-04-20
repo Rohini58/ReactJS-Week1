@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <title>simple Calculator</title>
+        
+    </head>
+   
+    <style>
+       
+        .Container {
+      margin: 90px auto;
+      padding: 80px;
+      width: 250px;
+      height: 300px;
+      float: center;
+      background-color: rgb(238, 210, 243);
+    }
+    
+    button{
+    margin: auto;
+    
+}
+
+#btn{
+   
+    margin-left: 9px;
+    
+}
+
+
+    </style>
+
+    <body>
+        <div id="app" />
+        <script type="text/babel">
+            
+
+            class App extends React.Component {
+
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        
+                        input1: "",
+                        input2: "",
+                        result:""
+                    };
+                }
+
+                render() {
+                    return (
+                        <div className="Container"> 
+                            <h1>Simple Calculator</h1>
+
+                            <p>Input 1</p>
+                            <input onChange={this.UpdateResponse1} value={this.state.input1}/>
+
+                            <p>Input 2</p>
+                            <input  onChange={this.UpdateResponse2} value={this.state.input2}/><br></br><br></br>
+                            <button id="btn" onClick={this.add}>+</button>
+                            <button  id="btn"onClick={this.sub}>-</button>
+                            <button  id="btn"onClick={this.mul}>*</button>
+                            <button  id="btn" onClick={this.div}>/</button>
+                            <button id="btn" onClick={this.reset}>Reset</button>
+                            <p>Result</p>
+
+                            <input value={this.state.result} placeholder="Result"  />
+                           
+                            
+                            </div>
+
+  
+                            
+                    );
+                }
+                UpdateResponse1 = (event) => {
+                    this.setState({ input1:parseInt(event.target.value) });   
+                    
+
+
+                }
+                UpdateResponse2 = (event) => {
+                    this.setState({ input2: parseInt(event.target.value) });   
+                    
+                }
+                add=(event)=>{
+                  var  a=this.state.input1;
+                  var  b=this.state.input2;
+                    var c=a+b
+                    this.setState({
+                        result:c
+                    })
+                }
+                sub=(event)=>{
+                   var a=this.state.input1;
+                   var b=this.state.input2;
+                    var   c=a-b
+                    this.setState({
+                        result:c
+                    })
+                }
+                mul=(event)=>{
+                var a=this.state.input1;
+                var b=this.state.input2;
+                var c=a*b
+                    this.setState({
+                        result:c
+                    })
+                }
+                div=(event)=>{
+                   var a=this.state.input1;
+                   var b=this.state.input2;
+                   var c=a/b
+                    this.setState({
+                        result:c
+                    })
+                }
+
+                reset= (event) => {
+                    this.setState({
+                        input1: "",
+                        input2: "",
+                        result:""
+        
+                    });
+                }
+
+
+      }
+
+               
+               
+
+            
+
+            ReactDOM.render((
+                <div>
+                    <App />
+                </div>
+            ), document.querySelector("#app"));
+        </script>
+    </body>
+</html>
