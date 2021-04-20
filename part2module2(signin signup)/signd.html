@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <title>Login Page</title>
+       <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="app" />
+        <script type="text/babel">
+            class Winner extends React.Component {
+                render() {
+                    return (
+                        <div id="winner">
+                            Welcome to sign in page
+                        </div>
+                    );
+                }
+            }
+
+            class App extends React.Component {
+
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        uname:"",
+                        password:"",
+                        ans: "",
+                        res:"",
+                        fname:"",
+                        fpassword:"",
+                        fdob:"",
+                        fnum:""
+                    };
+                }
+
+                render() {
+                    if (this.state.uname !="" && this.state.password!="" && this.state.ans!= "" ) {
+                        return this.renderWin();
+                    } 
+                    else if(this.state.res!=""){
+                        return this.renderDetails();
+                    }
+                    
+                    else{
+                         return this.renderProblem();
+                    }
+                }
+
+                 
+
+                renderDetails(){
+                    return(
+                        <div id="Details">
+                        <p>Name:</p>
+                        <input onKeyPress={this.inputKeyPress} onChange={this.updateHandler1} value={this.state.fname} type="text" name="yourname" placeholder="Name" />
+                        <br></br>
+                        <p>Type Password:</p>
+                        <input onKeyPress={this.inputKeyPress} onChange={this.updateHandler2} value={this.state.fpassword} type="password" name="password" placeholder="Password" />
+                        <p>Enter Date of Birth:</p>
+                        <input onKeyPress={this.inputKeyPress} onChange={this.updateHandler3} value={this.state.fdob} type="date" name="dob" placeholder="Date of Birth" />
+                       
+                        <p>Enter your Mobile Number:</p>
+                        <input onKeyPress={this.inputKeyPress} onChange={this.updateHandler4} value={this.state.fnum} type="number" name="Mobile Number" placeholder="" />
+                        <br></br>
+                        
+                        <a href="signd.html" target="_parent"><button>Sign In</button></a>
+                        <br></br>
+                        </div>
+
+                    );
+                }
+
+                
+                updateHandler1 = (event) => {
+                    this.setState({ fname: event.target.value });
+                   
+                }
+                updateHandler2 = (event) => {
+                    this.setState({ fpassword: event.target.value });
+                   
+                }
+        
+                updateHandler3 = (event) => {
+                    this.setState({ fdob: event.target.value });
+                   
+                }
+                updateHandler4 = (event) => {
+                    this.setState({ fnum: event.target.value });
+                   
+                }
+                
+
+
+                renderProblem() {
+                    return (
+                    <div id="Sign1">
+                <p>Username:</p>
+                <input onKeyPress={this.inputKeyPress} onChange={this.updateResponse1} value={this.state.uname} type="text" name="username" placeholder="User Name" />
+                <br></br>
+                <p>Password:</p>
+                <input onKeyPress={this.inputKeyPress} onChange={this.updateResponse2} value={this.state.password} type="password" name="password" placeholder="Password" />
+                <br></br>
+                <br></br>
+                
+                <button onClick={this.resetGame} onChange={this.updateResponse3} value={this.state.ans}>Login</button>
+                <br></br>
+                <p>Not Registered yet??</p>
+                <button onClick={this.resetG} onChange={this.updateResponse4} value={this.state.res}>SignUp</button>
+                        </div>
+                    );
+                }
+                
+
+
+                renderWin() {
+                    const name = this.state.uname;
+                    return (
+                        <Winner name={name} />
+                    );
+                }
+
+                updateResponse1 = (event) => {
+                    this.setState({ uname: event.target.value });
+                   
+                }
+        
+                updateResponse2 = (event) => {
+                    this.setState({ password: event.target.value });
+                }
+
+                updateResponse3 = (event) => {
+                    this.setState({ ans: event.target.value });
+                }
+                updateResponse4 = (event) => {
+                    this.setState({ res: event.target.value });
+                }
+
+
+                resetG=(event)=>{
+                    name="hello"
+                    this.setState({
+                        res:{name}
+                    })
+                }
+                
+
+                 
+                 
+                
+           
+
+                resetGame = (event) => {
+                    this.setState({
+                        
+                        ans: this.state.uname
+                        
+                    });
+                }
+            }
+
+            ReactDOM.render((
+                <div>
+                    <App />
+                </div>
+            ), document.querySelector("#app"));
+        </script>
+    </body>
+</html>
