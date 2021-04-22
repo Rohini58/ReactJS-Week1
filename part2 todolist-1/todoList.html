@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <title>To list</title>
+</head>
+<style>
+ 
+  .container{
+        margin: 90px auto;
+        padding: 80px;
+        width: 250px;
+        height: 300px;
+        float: center;
+        background-color: rgb(247, 151, 96);
+        border:1px solid black
+  }
+  #tab{
+    border: 1px solid rgb(0,0,0);
+    width:200px;
+    height: 25px;
+    margin:3px;
+
+  }
+  #btn{
+    float: right;
+  }
+  h1{
+    margin-top: -50px;
+    text-align: center;
+  }
+</style>
+
+<body>
+  <div id="app" />
+  <script type="text/babel">
+
+
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          tasks:[],
+          input: "",
+          count:0
+        };
+      }
+
+      render() {
+        return (
+          <div class="container">
+            <h1>ToDo list</h1>
+            <h3>list of items:{this.state.count}</h3>
+
+            <ul >
+              {this.state.tasks.map((task,i) =>
+                <li id="tab"key={i}>
+                  {task}
+               <button id="btn" onClick={(event)=>{this.deleteTask(event,i)}}>DeleteTask</button>
+
+                </li>
+              )}
+            </ul>
+            <div>
+
+            <input onChange={this.UpdateValue}value={this.state.input}/>
+            <button onClick={this.addTask}>AddTask</button>
+            </div>
+          </div>
+        );
+      }
+
+      UpdateValue=(event)=>{
+        this.setState({
+          input:event.target.value,
+        });
+      }
+      addTask=(event)=>{
+        this.setState(state=>({
+          tasks:[...state.tasks,state.input],
+          input:"",
+          count:state.count+1
+          
+
+        }));
+
+      }
+      deleteTask=(event,i)=>{
+        var ditem=[...this.state.tasks]
+        ditem.splice(i,1)
+        this.setState(state=>({
+          tasks:ditem,
+          count:state.count-1
+        }));
+
+      }
+
+
+
+
+    }
+
+
+
+  ReactDOM.render(<App />, document.querySelector("#app"));
+
+  </script>
+</body>
+
+</html>
