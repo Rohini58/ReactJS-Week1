@@ -1,0 +1,53 @@
+.container {
+    margin: 90px auto;
+    padding: 80px;
+    width: 600px;
+    height: 500px;
+    float: center;
+    background-image:url(bgimage.jpg) ;
+    border: 3px solid rgb(12, 12, 12)
+  }
+
+  .time:hover{
+    cursor: pointer;
+    background: palegreen;
+
+  }
+
+  .delete:hover{
+      cursor: pointer;
+      background: cyan;
+  }
+
+  .edit:hover{
+    cursor: pointer;
+    background: cornflowerblue;
+  }
+
+  .update:hover{
+    cursor: pointer;
+    background: gray;
+    float: right;
+    height: 35px;
+    margin-left: 5px;
+  }
+
+  .ADD:hover{
+    cursor: pointer;
+    background: rgb(41, 149, 199);
+  }
+
+.FETCH:hover{
+    cursor: pointer;
+    background: rgb(128, 70, 125);
+}
+
+.RESET:hover{
+    cursor: pointer;
+    background: rgb(126, 128, 52);
+}
+
+.RESTORE:hover{
+    cursor: pointer;
+    background: rgb(73, 41, 41);
+}
